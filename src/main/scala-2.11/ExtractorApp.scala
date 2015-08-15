@@ -5,7 +5,7 @@ import models._
 import net.ruippeixotog.scalascraper.browser.Browser
 import net.ruippeixotog.scalascraper.dsl.DSL.Extract._
 import net.ruippeixotog.scalascraper.dsl.DSL._
-import org.joda.time.{DateTime, Duration}
+import org.joda.time.{Minutes, DateTime, Duration}
 import org.jsoup.nodes.Document
 
 object ExtractorApp extends App {
@@ -23,8 +23,8 @@ object ExtractorApp extends App {
 
   val maybeDuration = for {
     text <- doc >?> extractor("div.infobar > time[itemprop=duration]", text)
-    amount = text.filter(_.isDigit).toInt
-  } yield new Duration(amount)
+    minutes = text.filter(_.isDigit).toInt
+  } yield Minutes.minutes(minutes).toStandardDuration
 
   val maybeGenres = (doc >?> extractor("span[itemprop=genre]", texts)).map(genres => genres.map(Genre(_)))
 
