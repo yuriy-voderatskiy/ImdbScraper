@@ -42,10 +42,10 @@ object DocumentFetcherActor {
 
   sealed trait Message
 
-  case class FetchDocumentRequest(url: String)
+  case class FetchDocumentRequest(url: String) extends Message
 
-  case class FetchDocumentResultSuccess(doc: Document)
+  case class FetchDocumentResultSuccess(doc: Document) extends Message
 
-  case class FetchDocumentResultFailure(message: String, cause: Exception)
+  case class FetchDocumentResultFailure(message: String, cause: Exception) extends Message
 
 }
