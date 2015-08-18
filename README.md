@@ -5,3 +5,4 @@ Sandbox for [Movie Recommendation](https://github.com/yuriy-voderatskiy/Spark-Mo
 Tools:
 * Scala 2.11.x
 * [scala-scraper](https://github.com/ruippeixotog/scala-scraper)
+* [akka](http://akka.io)
